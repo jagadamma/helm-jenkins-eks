@@ -1,0 +1,30 @@
+{{- if .Values.prometheus.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: prometheus-ebs-claim
+  namespace: monitoring
+spec:
+  storageClassName: {{ .Values.prometheus.storageClassName }}
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.prometheus.size }}
+{{- end }}
+
+{{- if .Values.alertmanager.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: alertmanager-ebs-claim
+  namespace: monitoring
+spec:
+  storageClassName: {{ .Values.alertmanager.storageClassName }}
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.alertmanager.size }}
+{{- end }}
+

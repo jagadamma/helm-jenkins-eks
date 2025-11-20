@@ -1,0 +1,34 @@
+frontend:
+  image: "jagadamma/3tier_frontend"
+  replicas: 10
+  containerPort: 80
+  servicePort: 80
+  env:
+    backendUrl: "http://backend-service:4000"
+
+backend:
+  image: "jagadamma/3tier_backend:latest"
+  containerPort: 4000
+  servicePort: 4000
+  nodePort: 31000
+  db:
+    host: "abi.cvgeoooom8vt.ap-south-1.rds.amazonaws.com"
+    name: "abi"
+    port: "3306"
+    user: "abi"
+    password: "abilashp1995"
+
+hpa:
+  minReplicas: 1
+  maxReplicas: 3
+  cpuTarget: 1
+
+storage:
+  className: gp3
+  size: 10Gi
+
+ingress:
+  enabled: true
+  albScheme: "internet-facing"
+  httpPort: 80
+

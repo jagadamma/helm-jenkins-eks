@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: {{ .Values.frontend.replicas }}
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: {{ .Values.frontend.image }}
+        ports:
+        - containerPort: {{ .Values.frontend.containerPort }}
+        env:
+        - name: REACT_APP_BACKEND_URL
+          value: {{ .Values.frontend.env.backendUrl }}
+        volumeMounts:
+        - name: frontend-storage
+          mountPath: "/data"
+      volumes:
+      - name: frontend-storage
+        persistentVolumeClaim:
+          claimName: my-ebs-claim
