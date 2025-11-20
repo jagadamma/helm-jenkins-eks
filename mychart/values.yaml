@@ -1,6 +1,6 @@
 frontend:
   image: "jagadamma/3tier_frontend"
-  replicas: 10
+  replicas: 2
   containerPort: 80
   servicePort: 80
   env:
@@ -20,7 +20,7 @@ backend:
 
 hpa:
   minReplicas: 1
-  maxReplicas: 3
+  maxReplicas: 2
   cpuTarget: 1
 
 storage:
