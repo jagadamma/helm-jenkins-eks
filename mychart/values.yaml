@@ -35,7 +35,7 @@ ingress:
   albScheme: "internet-facing"
   httpPort: 
 
-  prometheus:
+prometheus:
   enabled: false
   storageClassName: gp3
   size: 10Gi
