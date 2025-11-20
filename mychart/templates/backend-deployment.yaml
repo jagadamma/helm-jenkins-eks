@@ -19,12 +19,12 @@ spec:
         - containerPort: {{ .Values.backend.containerPort }}
         env:
         - name: DB_HOST
-          value: {{ .Values.backend.db.host }}
+          value: "{{ .Values.backend.db.host }}"
         - name: DB_NAME
-          value: {{ .Values.backend.db.name }}
+          value: "{{ .Values.backend.db.name }}"
         - name: DB_PORT
-          value: {{ .Values.backend.db.port }}
+          value: "{{ .Values.backend.db.port }}"
         - name: DB_USER
-          value: {{ .Values.backend.db.user }}
+          value: "{{ .Values.backend.db.user }}"
         - name: DB_PASSWORD
-          value: {{ .Values.backend.db.password }}
+          value: "{{ .Values.backend.db.password }}"
