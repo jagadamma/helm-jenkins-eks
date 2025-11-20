@@ -33,7 +33,7 @@ storage:
 ingress:
   enabled: true
   albScheme: "internet-facing"
-  httpPort: 
+  httpPort: 80
 
 prometheus:
   enabled: false
