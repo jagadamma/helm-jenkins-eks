@@ -27,4 +27,3 @@ spec:
     requests:
       storage: {{ .Values.alertmanager.size }}
 {{- end }}
-
