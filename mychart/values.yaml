@@ -26,6 +26,9 @@ hpa:
 storage:
   className: gp3
   size: 10Gi
+  createStorageClass: false
+  default: false
+
 
 ingress:
   enabled: true
