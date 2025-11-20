@@ -19,7 +19,7 @@ spec:
         - containerPort: {{ .Values.frontend.containerPort }}
         env:
         - name: REACT_APP_BACKEND_URL
-          value: {{ .Values.frontend.env.backendUrl }}
+          value: "{{ .Values.frontend.env.backendUrl }}"
         volumeMounts:
         - name: frontend-storage
           mountPath: "/data"
